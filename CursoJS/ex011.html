@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacionalidade</title>
+    <style>
+        body {
+            font: normal 14pt Arial;
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+<body>
+    <h1>Seu status no BRASIL</h1>
+    Informe seu Pais: <input type="text" name="txtp" id="txtp">
+    <input type="button" value="verificar" onclick="informar()">
+    <div id="resultado"></div>
+    <script>
+        function informar() {
+            var pais = document.querySelector('input#txtp') ;
+            var res = window.document.querySelector('div#resultado');
+            
+            res.innerHTML = `<p>Seu pais é: <strong>${pais.value}</strong></p>`;
+           
+            if (pais.value == 'Brasil') {
+                res.innerHTML += `<p>Você é <span style='color:green'><strong>BRA</span><span style='color:yellow'>SIL</span><span style='color:blue'>EIR</span><span style='color:white'>O</span></strong></p>`;
+            } else {
+                res.innerHTML += `<p>Você é <strong>ESTRANGEIRO</strong></p>`;
+            }
+            
+        }
+
+    </script>
+</body>
+</html>
