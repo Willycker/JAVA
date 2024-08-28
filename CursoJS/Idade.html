@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDADE</title>
+    <style>
+        * { 
+            box-sizing: border-box; 
+        }
+        
+        body {
+            padding: 20px;
+            font: normal 12pt arial;
+        }
+
+        input#EntradaAno {
+            text-align: center;
+        }
+
+        div#MostraRes {
+            height: 30px;
+            width: 500px;
+            border: solid 1px black;
+            margin: 10px 0px;
+            text-align: center;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Sistema de Idade</h1>
+        <p>Digite o ano que você nasceu no campo abaixo:</p>
+        <input type="number" name="EntradaAno" id="EntradaAno" placeholder="Seu ano de nascimento">
+        <button id="BtnEnvia" onclick="GeraResultado()">Enviar</button><br>
+        <div id="MostraRes"></div>
+    </div>
+    <script>
+		function GeraResultado() {
+
+        const AnoAtual = 2024;
+        const AnoNascimento = Number(document.getElementById('EntradaAno').value);
+        const res = document.getElementById('MostraRes');
+        
+        if (AnoNascimento =="" || AnoNascimento > AnoAtual) {
+            alert("Erro: Ano INVALIDO - Digite um ano válido.");
+            window.location.reload();
+        } else if (AnoNascimento <= 1873) {
+            alert("Desculpe sua idade está acima da estimativa!.");
+            window.location.reload();
+        } else {
+            const Idade = AnoAtual - AnoNascimento;
+            res.innerHTML = `você nasceu em  <strong>${AnoNascimento}</strong>, este ano você fez ou vai fazer : <strong>${Idade}</strong> anos.`;
+    }
+        console.log (typeof AnoNascimento);
+        console.log(AnoAtual, 'ano atual');
+    } 
+        
+	</script>
+</body>
+</html>
+
+
